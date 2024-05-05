@@ -89,4 +89,13 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+const eurToUsd = 1.1;
+const mainmoney = movements.map(mov => mov * eurToUsd);
 
+const currency = movements.map(
+  (mov, i) =>
+    `
+  Movement ${i + 1}: you ${mov > 0 ? 'Deposit' : 'Withdrawal'} ${Math.abs(mov)}
+  `
+);
+console.log(currency);
