@@ -99,3 +99,15 @@ const currency = movements.map(
   `
 );
 console.log(currency);
+
+const some_accounts = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split('')
+      .map(name => name[0])
+      .join('');
+  });
+};
+some_accounts(accounts);
+console.log(accounts);
