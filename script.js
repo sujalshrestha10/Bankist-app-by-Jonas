@@ -89,6 +89,8 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
+
+//
 const eurToUsd = 1.1;
 const mainmoney = movements.map(mov => mov * eurToUsd);
 
@@ -111,3 +113,17 @@ const some_accounts = function (accs) {
 };
 some_accounts(accounts);
 console.log(accounts);
+
+const anyelement = movements.filter(function (move) {
+  return move > 0;
+});
+console.log(anyelement);
+
+const haveelement = [];
+for (const anyelem of movements) {
+  if (anyelem > 0) haveelement.push(anyelem);
+}
+console.log(haveelement);
+
+const anielement = movements.filter(movee => movee > 0);
+console.log(anielement);
