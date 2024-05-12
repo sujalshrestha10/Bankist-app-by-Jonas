@@ -89,7 +89,7 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-
+//MAP METHOD
 //
 const eurToUsd = 1.1;
 const mainmoney = movements.map(mov => mov * eurToUsd);
@@ -114,6 +114,7 @@ const some_accounts = function (accs) {
 some_accounts(accounts);
 console.log(accounts);
 
+//FILTER METHOD
 const anyelement = movements.filter(function (move) {
   return move > 0;
 });
@@ -127,3 +128,33 @@ console.log(haveelement);
 
 const anielement = movements.filter(movee => movee > 0);
 console.log(anielement);
+
+//REDUCE METHOD
+// const budget = movements.reduce(function (acc, curr) {
+//   console.log(`iteration ${i} :${acc}`);
+//   return acc + curr;
+// });
+// console.log(budget);
+
+//using arrow function
+// const budget = movements.reduce((acc, curr) => acc + curr, 0);
+// console.log(budget);
+
+//using for of method
+let budget2 = 0;
+for (const something of movements) budget2 += something;
+console.log(budget2);
+
+//DOM manipulation using reduce method
+
+const show_balance = function (movements) {
+  const balance = movements.reduce((acci, curr) => acci + curr, 0);
+  labelBalance.textContent = `${balance} RS`;
+};
+show_balance(account1.movements);
+
+const given = [2, 4, 5, 6, 7, 7];
+const give = given.reduce((acci, movo) => acci + movo);
+console.log(give);
+
+
