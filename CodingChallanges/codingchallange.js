@@ -35,14 +35,9 @@ TEST DATA 2:[16,6,10,5,6,1,4]
 */
 
 const calcAverageHumanAge = function (ages) {
-  const humanAge = ages.map(function (dogAge, i) {
-    if (dogAge <= 2) {
-      return 2 * dogAge;
-    }
-    if (dogAge > 2) {
-      return 16 + dogAge * 4;
-    }
-  });
+  const humanAge = ages.map(dogAge =>
+    dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4
+  );
   const adultDogs = humanAge.filter(function (someAge) {
     return someAge >= 18;
   });
