@@ -51,3 +51,4 @@ const calcAverageHumanAge = function (ages) {
 const average1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 const average2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
 console.log(average1, average2);
+

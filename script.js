@@ -102,6 +102,14 @@ const currency = movements.map(
 );
 console.log(currency);
 
+const calcdisplaysummary = function (movements) {
+  const income = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, curr) => acc + curr);
+  labelSumIn.textContent = `${income}`;
+};
+calcdisplaysummary(movements);
+
 const some_accounts = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -157,4 +165,11 @@ const given = [2, 4, 5, 6, 7, 7];
 const give = given.reduce((acci, movo) => acci + movo);
 console.log(give);
 
-
+//app part
+//PIPELINE
+const Euro_to_nepali = 144;
+const total_deposit = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * Euro_to_nepali)
+  .reduce((acc, curr) => acc + curr, 0);
+console.log(total_deposit);
