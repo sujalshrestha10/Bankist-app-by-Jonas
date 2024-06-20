@@ -1,7 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
 // BANKIST APP
 
 // Data
@@ -100,7 +98,7 @@ const currency = movements.map(
   Movement ${i + 1}: you ${mov > 0 ? 'Deposit' : 'Withdrawal'} ${Math.abs(mov)}
   `
 );
-console.log(currency);
+// console.log(currency);
 
 const calcdisplaysummary = function (movements) {
   const income = movements
@@ -120,22 +118,22 @@ const some_accounts = function (accs) {
   });
 };
 some_accounts(accounts);
-console.log(accounts);
+// console.log(accounts);
 
 //FILTER METHOD
-const anyelement = movements.filter(function (move) {
-  return move > 0;
-});
-console.log(anyelement);
+// const anyelement = movements.filter(function (move) {
+//   return move > 0;
+// });
+// console.log(anyelement);
 
-const haveelement = [];
-for (const anyelem of movements) {
-  if (anyelem > 0) haveelement.push(anyelem);
-}
-console.log(haveelement);
+// const haveelement = [];
+// for (const anyelem of movements) {
+//   if (anyelem > 0) haveelement.push(anyelem);
+// }
+// console.log(haveelement);
 
-const anielement = movements.filter(movee => movee > 0);
-console.log(anielement);
+// const anielement = movements.filter(movee => movee > 0);
+// console.log(anielement);
 
 //REDUCE METHOD
 // const budget = movements.reduce(function (acc, curr) {
@@ -149,9 +147,9 @@ console.log(anielement);
 // console.log(budget);
 
 //using for of method
-let budget2 = 0;
-for (const something of movements) budget2 += something;
-console.log(budget2);
+// let budget2 = 0;
+// for (const something of movements) budget2 += something;
+// console.log(budget2);
 
 //DOM manipulation using reduce method
 
@@ -161,9 +159,10 @@ const show_balance = function (movements) {
 };
 show_balance(account1.movements);
 
-const given = [2, 4, 5, 6, 7, 7];
-const give = given.reduce((acci, movo) => acci + movo);
-console.log(give);
+//REDUCE METHOD
+// const given = [2, 4, 5, 6, 7, 7];
+// const give = given.reduce((acci, movo) => acci + movo);
+// console.log(give);
 
 //app part
 //PIPELINE
@@ -172,4 +171,69 @@ const total_deposit = movements
   .filter(mov => mov > 0)
   .map(mov => mov * Euro_to_nepali)
   .reduce((acc, curr) => acc + curr, 0);
-console.log(total_deposit);
+// console.log(total_deposit);
+
+//FIND methods
+
+// const first_withdrawl = movements.find(mov => mov < 0);
+// console.log(movements);
+// console.log(first_withdrawl);
+// console.log(accounts);
+
+// const finding_account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(finding_account);
+
+// // EVENT HANDLER
+// let currentAccount;
+// btnLogin.addEventListener('click', function (e) {
+//   // Prevent form from submitting
+//   e.preventDefault();
+//   currentAccount = accounts.find(
+//     acc => acc.username === inputLoginUsername.value
+//   );
+//   console.log(currentAccount);
+// });
+
+// some and every method
+
+let ages = [10, 23, 19, 20, -10, -90, -35, -42];
+const greater = ages.findIndex(greater_age => greater_age > 18);
+console.log(greater);
+
+const truth = ages.every(elementss => elementss > 18);
+console.log(truth);
+const truthi = ages.some(elementss => elementss > 18);
+console.log(truthi);
+
+// flat and flatmap
+
+const some_array = [
+  [1, 2],
+  [4, 5],
+  [7, 9],
+];
+const any_array = some_array.flatMap(function (val, ind) {
+  return [val[0] + val[1]];
+});
+console.log(any_array);
+
+// const any_array = some_array.map(function (val, ind) {
+//   return [val[0] + val[1]];
+// });
+// console.log(any_array);
+
+//If we use map here it will return arrays of arrays but if we use flatMap then it will return flat values with single arrays
+
+//SORTING WITH ARRAYS
+
+let sorted_arr = ages.sort((a, b) => {
+  if (a > b) {
+    return 1;
+  }
+  if (b > a) {
+    return -1;
+  }
+});
+
+console.log(sorted_arr);
+console.log(ages.sort()); //this cant sort the negative number so we use above method to sort negative numbers
